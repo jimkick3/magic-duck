@@ -16,6 +16,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.Toast
+import com.choufleur.magicduck.EmployeePropertiesInputActivity
 
 import com.choufleur.magicduck.R
 
@@ -111,12 +112,13 @@ class LoginActivity : AppCompatActivity() {
             //TODO Boss interface ui thingy like yeah
         }
         else {
-            //activity employee welcome screen
+            startActivity(Intent(this,EmployeePropertiesInputActivity::class.java))
         }
     }
 
     private fun showLoginFailed(@StringRes errorString: Int) {
         Toast.makeText(applicationContext, errorString, Toast.LENGTH_SHORT).show()
+        startActivity(Intent(this,LoginActivity::class.java))
     }
 }
 
