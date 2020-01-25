@@ -1,9 +1,11 @@
 package com.choufleur.magicduck.ui.login
 
 import android.app.Activity
+import android.content.Intent
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
+import android.provider.AlarmClock.EXTRA_MESSAGE
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import android.text.Editable
@@ -100,12 +102,17 @@ class LoginActivity : AppCompatActivity() {
     private fun updateUiWithUser(model: LoggedInUserView) {
         val welcome = getString(R.string.welcome)
         val displayName = model.displayName
-        // TODO : initiate successful logged in experience
         Toast.makeText(
             applicationContext,
-            "$welcome $displayName",
+            "$welcome $displayName to my app",
             Toast.LENGTH_LONG
         ).show()
+        if(model.displayName.equals("Boss")){
+            //TODO Boss interface ui thingy like yeah
+        }
+        else {
+            //activity employee welcome screen
+        }
     }
 
     private fun showLoginFailed(@StringRes errorString: Int) {
