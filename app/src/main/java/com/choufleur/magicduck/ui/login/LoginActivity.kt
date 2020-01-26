@@ -19,6 +19,7 @@ import android.widget.Toast
 import com.choufleur.magicduck.EmployeePropertiesInputActivity
 
 import com.choufleur.magicduck.R
+import kotlinx.android.synthetic.main.activity_employee_properties_input.*
 
 class LoginActivity : AppCompatActivity() {
 
@@ -26,17 +27,14 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContentView(R.layout.activity_login)
 
         val username = findViewById<EditText>(R.id.username)
         val password = findViewById<EditText>(R.id.password)
         val login = findViewById<Button>(R.id.login)
         val loading = findViewById<ProgressBar>(R.id.loading)
-
         loginViewModel = ViewModelProviders.of(this, LoginViewModelFactory())
             .get(LoginViewModel::class.java)
-
         loginViewModel.loginFormState.observe(this@LoginActivity, Observer {
             val loginState = it ?: return@Observer
 
@@ -49,8 +47,9 @@ class LoginActivity : AppCompatActivity() {
             if (loginState.passwordError != null) {
                 password.error = getString(loginState.passwordError)
             }
-        })
 
+
+        })
         loginViewModel.loginResult.observe(this@LoginActivity, Observer {
             val loginResult = it ?: return@Observer
 
@@ -66,7 +65,6 @@ class LoginActivity : AppCompatActivity() {
             //Complete and destroy login activity once successful
             finish()
         })
-
         username.afterTextChanged {
             loginViewModel.loginDataChanged(
                 username.text.toString(),

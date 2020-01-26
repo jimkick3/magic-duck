@@ -12,4 +12,7 @@
     <string name="question_productive">"When are you most productive?"</string>
     <string name="question_lunch">"When does your lunch hour start?"</string>
     <string name="title_activity_employee_properties_input">EmployeePropertiesInputActivity</string>
+    <string name="title_activity_day_schedule_view">DayScheduleView</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
 </resources>
