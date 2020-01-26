@@ -1,0 +1,52 @@
+[
+  {
+    "name":"RandomEvent1",
+    "duration":300,
+    "priority": 1
+  },
+  {
+    "name":"RandomEvent2",
+    "duration":40,
+    "priority": 3
+  },
+  {
+  "name":"RandomEvent3",
+  "duration":60,
+  "priority": 1
+  },
+  {
+    "name":"RandomEvent4",
+    "duration":45,
+    "priority": 2
+  },
+  {
+    "name":"RandomEvent5",
+    "duration":20,
+    "priority": 2
+  },
+  {
+    "name":"RandomEvent6",
+    "duration":20,
+    "priority": 2
+  },
+  {
+    "name":"RandomEvent7",
+    "duration":75,
+    "priority": 1
+  },
+  {
+    "name":"RandomEvent8",
+    "duration":15,
+    "priority": 3
+  },
+  {
+    "name":"RandomEvent9",
+    "duration":60,
+    "priority": 3
+  },
+  {
+    "name":"RandomEvent10",
+    "duration":25,
+    "priority": 3
+  }
+]

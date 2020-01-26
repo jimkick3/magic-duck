@@ -1,20 +1,34 @@
 package com.choufleur.magicduck.helper;
 
+import com.beust.klaxon.Json;
+
 public class Task {
     // name
     // duration task
     // calculate breaks
     // total duration
     // priority (due date)
+    public String name;
 
-    String name;
+    @Json(ignored=false)
     int duration; // in minutes
+
     int totalDuration;
+
+    @Json(ignored=false)
     int priority;
+
+    static final int DEFAULT_PRIORITY = 2;
 
     public Task(String name, int duration, int priority){
         this.name = name;
         this.duration = duration;
+        this.priority = priority;
+    }
+    public Task(String name, int duration){
+        this.name = name;
+        this.duration = duration;
+        this.priority = DEFAULT_PRIORITY;
     }
 
     public int getPriority() {

@@ -20,11 +20,9 @@ class EmployeePropertiesInputActivity : AppCompatActivity() {
         setContentView(R.layout.activity_employee_properties_input)
         toolbar.setTitle("Preferences")
         toolbar.setSubtitle("Tell us a bit about your day")
-
         setSupportActionBar(toolbar)
         val intentI = Intent(this, DayScheduleView::class.java)
         //TODO : intentI.putExtra(genSchedule(prodTime, lunchTime)::schedule)
-
         fab.setOnClickListener {
             startActivity(intentI)
         }
