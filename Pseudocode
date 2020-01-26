@@ -1,0 +1,78 @@
+BEST DAILY SCHEDULE FINDER
+
+
+Problem: Find subsets of events {x1,...xN} that will fit within a margin m of day of length K.
+
+Let P[n,k] = numbers of solutions using {x1,...,xn} events with day of length K.
+Let S[n,k] = number of solutions xn is a part of for day of length K.
+
+This is O(NK). (Knapsack Problem)
+COMPUTE_MATRICES[N,K]:
+Initialize P[i,j] and S[i,j] to 0 for all 1 <= i <= N, 1 <= j <= K.
+for n = 0 to N:
+	for k = 0 to K:
+		if k = 0, then P[n,k]++ // vaccuous truth, S[n,k] does not change
+
+		else if n = 0, then do nothing // no solution, nothing changes
+
+		else
+			if xn > k, then P[n,k]+=P[n-1,k] // S[n,k] does not change, xn is not used
+
+			else if xn = k, then P[n,k]++, S[n,k]++
+
+			else if xn < k
+				P[n,k] += P[n-1, k] + P[n-1,k-xn]
+				S[n,k] += P[n-1,k-xn]
+
+
+Use solutions in P[n,k] where k in {K1-m,..., K1}, n in {N-m,...,N}, where K1 is the index of the first non zero entry from above.
+
+Problem: Match these solutions with the subsets in S[n,k] (algorithm to find the subsets?)
+
+LIST_OF_SETS
+
+Problem: Score each set of events to determine priority.
+
+Let G be the list of sets of events.
+Let C[i] be the score of the set of events at index i.
+
+This is O(|G|*|H|)
+COMPUTE_SCORE(G,C):
+for each set H in G
+	let score = length = 0
+	for each element e in H
+		score += priority of e
+		length += length of e
+	let time_loss = LENGTH_DAY - length
+	penalize score depending on time_loss
+	C[i] = score
+
+Now, we have the best set of tasks to carry out in a day (set with highest priority score max(C[i])).
+
+Problem: Find the permutation of the jobs in the best set such to minimize the "cost" (aka maximize priority).
+
+Let J1,...,Jn be the jobs in the best set taking time t1,...,tn, and with priority p1,...,pn.
+Let T be the most productive time in the day for the user (constant).
+
+Let the cost function of job i ending at time t be defined as ci(t) = |T-t| * (1/pi).
+Let the total cost of a permuation (s1,...,sn) be sum[i=1 to N](csi(sum[j = 0 to i](tj))).
+
+This is O(1).
+CALCULATE_Ci(pi, t):
+return |T-t| * (1/pi)
+
+Let S be any subsets of {1,...,n}.
+Let C(S) be the optimal cost for subset S.
+
+This is O(n*2^n).
+TASK_ORDERING(Ji, ti, ci(t), for all 1 <= i <= n):
+for k = 0 to n
+	// how to compute power set?
+	for all subsets S of size k do:
+		C(S) = min_{i in S}(C(S\{i}), ci(sum[j in S](tj)))
+
+POWER_SET(S):
+
+
+
+	
