@@ -10,6 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".DayScheduleView"
+            android:label="@string/title_activity_day_schedule_view"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
             android:name=".EmployeePropertiesInputActivity"
             android:label="@string/title_activity_employee_properties_input"
             android:parentActivityName=".ui.login.LoginActivity"
